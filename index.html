@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HotelHire – Hotels Need Workers. Workers Need Opportunities.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR (shown after login) -->
+  <header id="navbar" class="navbar hidden">
+    <div class="container nav-inner">
+      <a class="logo" data-go="landing"></a>
+      <nav id="nav-links" class="nav-links"></nav>
+      <button id="menu-btn" class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- LANDING -->
+  <section id="page-landing" class="page">
+    <div class="container top-bar">
+      <a class="logo"></a>
+      <div>
+        <button class="btn ghost" data-go="auth">Login</button>
+        <button class="btn dark" data-go="auth">Get Started</button>
+      </div>
+    </div>
+
+    <div class="container hero">
+      <div>
+        <span class="chip">✨ Temporary hotel staffing, on demand</span>
+        <h1>Hotels need workers.<br />Workers need <em>opportunities.</em></h1>
+        <p class="lead">Find reliable temporary hotel workers when you need them, or discover flexible hotel work opportunities near you.</p>
+        <div class="row">
+          <button class="btn gold" data-go="auth">Find Hotel Work</button>
+          <button class="btn outline" data-go="auth">Find Workers</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="mono gold-text">LIVE VACANCY — HOTEL SUNRISE, PUNE</p>
+        <h3>Waiters needed</h3>
+        <p class="muted-light">25 Aug – 28 Aug · 10 AM – 7 PM</p>
+        <div class="meter dark-meter"><span style="width:50%"></span></div>
+        <div class="mono between"><span>Positions filled</span><span>1 / 2</span></div>
+        <div class="mono between"><span>Daily rate</span><span>₹800/day</span></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>"A hotel can find temporary workers whenever its regular staff are unavailable, while workers can find short-term hotel jobs whenever they want to work."</p>
+    </div>
+
+    <div class="container two-col section">
+      <div>
+        <h2>For Hotels</h2>
+        <ol class="steps"><li>Create an account</li><li>Post your worker requirement</li><li>Connect with available workers</li></ol>
+        <ul class="ticks"><li>Find workers quickly</li><li>Temporary staffing</li><li>Multiple worker categories</li><li>Direct contact</li><li>Easy vacancy posting</li></ul>
+      </div>
+      <div>
+        <h2>For Workers</h2>
+        <ol class="steps"><li>Create your profile</li><li>Find available hotel vacancies</li><li>Contact the hotel and get hired</li></ol>
+        <ul class="ticks"><li>Find temporary jobs</li><li>Flexible working days</li><li>Discover nearby hotels</li><li>Direct contact with hotels</li><li>Earn money through available work</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTH -->
+  <section id="page-auth" class="page hidden center-page">
+    <div class="auth-box">
+      <div class="center"><a class="logo" data-go="landing"></a></div>
+      <div class="card">
+        <div class="tabs">
+          <button id="tab-login" class="tab active">Login</button>
+          <button id="tab-signup" class="tab">Create Account</button>
+        </div>
+        <div id="signup-only">
+          <label>Full Name<input id="f-name" placeholder="Rahul Patil" /></label>
+          <label>Mobile Number<input id="f-mobile" placeholder="98XXXXXXXX" maxlength="10" /></label>
+        </div>
+        <label>Email<input id="f-email" type="email" placeholder="you@example.com" /></label>
+        <label>Password<input id="f-pass" type="password" placeholder="••••••••" /></label>
+        <div id="signup-only-2"><label>Confirm Password<input id="f-confirm" type="password" placeholder="••••••••" /></label></div>
+        <p id="auth-error" class="error"></p>
+        <button id="auth-submit" class="btn dark full">Login</button>
+        <p class="divider">OR CONTINUE AS</p>
+        <div class="grid-2">
+          <button class="btn outline" id="as-owner">🏨 Hotel Owner</button>
+          <button class="btn outline" id="as-worker">👨‍🍳 Worker</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USER TYPE -->
+  <section id="page-userType" class="page hidden center-page">
+    <div class="container center">
+      <a class="logo" data-go="landing"></a>
+      <h1 class="mt">What are you looking for?</h1>
+      <div class="grid-2 type-cards">
+        <button class="type-card" id="pick-owner">
+          <div class="icon-box">🏨</div>
+          <h3>I Need Workers</h3>
+          <p>I'm a hotel owner/manager looking for temporary or permanent workers.</p>
+          <strong>Find Workers →</strong>
+        </button>
+        <button class="type-card" id="pick-worker">
+          <div class="icon-box">👨‍🍳</div>
+          <h3>I Need Hotel Work</h3>
+          <p>I'm looking for temporary or flexible work opportunities in hotels.</p>
+          <strong>Find Hotel Jobs →</strong>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER: DASHBOARD -->
+  <section id="page-ownerDash" class="page hidden">
+    <div class="container section">
+      <h1 id="welcome-owner">Welcome, Hotel Owner!</h1>
+      <div class="stats" id="owner-stats"></div>
+      <div class="row">
+        <button class="btn gold" data-go="postVacancy">Post a Vacancy</button>
+        <button class="btn outline" data-go="findWorkers">Browse Workers</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER: POST VACANCY -->
+  <section id="page-postVacancy" class="page hidden">
+    <div class="container narrow section">
+      <h1>Post a Vacancy</h1>
+      <form id="vacancy-form" class="card">
+        <h3>Hotel Information</h3>
+        <div class="grid-2">
+          <label>Hotel Name *<input name="hotelName" required /></label>
+          <label>Hotel Location *<select name="location" required></select></label>
+          <label>Hotel Address<input name="address" /></label>
+          <label>Hotel Contact Number<input name="contact" maxlength="10" /></label>
+        </div>
+        <h3>Worker Requirement</h3>
+        <div class="grid-2">
+          <label>Worker Type<select name="jobType" id="job-type-select"></select></label>
+          <label>Number of Workers Required<input name="workersRequired" type="number" min="1" value="1" /></label>
+          <label>Start Date *<input name="startDate" type="date" required /></label>
+          <label>End Date *<input name="endDate" type="date" required /></label>
+          <label>Working Hours<input name="workingHours" placeholder="10 AM – 7 PM" /></label>
+          <label>Salary per Day (₹) *<input name="salaryPerDay" type="number" min="1" required /></label>
+          <label>Salary per Month (optional)<input name="salaryPerMonth" type="number" /></label>
+          <label>Experience Required
+            <select name="experience"><option>0–1 year</option><option>1–2 years</option><option>2+ years</option></select>
+          </label>
+          <label>Food Provided?
+            <select name="foodProvided"><option value="yes">Yes</option><option value="no">No</option></select>
+          </label>
+          <label>Accommodation Provided?
+            <select name="accommodation"><option value="no">No</option><option value="yes">Yes</option></select>
+          </label>
+        </div>
+        <label>Additional Requirements<textarea name="notes" rows="3"></textarea></label>
+        <button type="submit" class="btn gold full">Post Vacancy</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- OWNER: MY VACANCIES -->
+  <section id="page-myVacancies" class="page hidden">
+    <div class="container section">
+      <h1>My Vacancies</h1>
+      <div id="my-vacancies" class="cards"></div>
+    </div>
+  </section>
+
+  <!-- OWNER: FIND WORKERS -->
+  <section id="page-findWorkers" class="page hidden">
+    <div class="container section">
+      <h1>Available Workers</h1>
+      <div class="filters">
+        <input id="worker-search" placeholder="Search: Chef, Housekeeping, Waiter in Pune..." />
+        <select id="worker-loc"></select>
+      </div>
+      <div id="worker-list" class="cards"></div>
+    </div>
+  </section>
+
+  <!-- WORKER: FIND JOBS -->
+  <section id="page-findJobs" class="page hidden">
+    <div class="container section">
+      <h1>Find Your Next Hotel Job</h1>
+      <div class="filters">
+        <input id="job-search" placeholder="Search hotel, job or location (e.g. Waiter in Pune)" />
+        <select id="job-loc"></select>
+        <select id="job-type"></select>
+        <select id="job-salary">
+          <option value="0">Any salary</option>
+          <option value="700">₹700+/day</option>
+          <option value="800">₹800+/day</option>
+          <option value="900">₹900+/day</option>
+        </select>
+        <select id="job-exp">
+          <option value="">Any experience</option>
+          <option>0–1 year</option><option>1–2 years</option><option>2+ years</option>
+        </select>
+      </div>
+      <div id="job-list" class="cards"></div>
+
+      <h2 class="mt">Hotel Jobs Near You</h2>
+      <div class="map-box">
+        <div class="map-dots" id="map-dots"></div>
+        <span class="map-note">Map placeholder – connect Google Maps / Leaflet for live pins</span>
+      </div>
+      <ul id="near-list" class="near-list"></ul>
+    </div>
+  </section>
+
+  <!-- WORKER: MY APPLICATIONS -->
+  <section id="page-myApplications" class="page hidden">
+    <div class="container narrow section">
+      <h1>My Applications</h1>
+      <div id="my-apps"></div>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="page-profile" class="page hidden">
+    <div class="container narrow section">
+      <h1>Profile</h1>
+      <div class="card" id="profile-card"></div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <footer class="footer">
+    <div class="container">© 2026 HotelHire — Temporary Hotel Staffing + Hotel Job Marketplace</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
